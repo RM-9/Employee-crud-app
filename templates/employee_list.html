@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<p> Here's the list of employee's in this company </p>
+<table class="table table-borderless">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>ID</th>
+            <th>
+                <button class="btn btn-primary" onclick="location.href='{% url 'employee_form' %}'">Add New</button>
+
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            {% for employee in employeelist %}
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.position }}</td>
+            <td>{{employee.id}}</td>
+            <td>
+                <a href="{%url 'employee_update' employee.id%}" class="btn  btn-sm">update</a>
+
+                <a href="{%url 'employee_delete' employee.id%}" class="btn  btn-sm">delete</a>
+            </td>
+        </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

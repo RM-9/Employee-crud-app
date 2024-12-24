@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<form method='POST' action=''>
+    {% csrf_token %}
+    <p> {{form}} </p>
+
+<button type='submit'><i class="fa fa-database" aria-hidden="true" ></i>submit</button>
+</form>
+
+{% endblock content %}
